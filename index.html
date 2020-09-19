@@ -1,0 +1,29 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armenian Petrol Prices History</title>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+
+<body>
+    <h3>
+        Armenian public petrol prices history
+    </h3>
+
+    <div id="container"></div>
+    <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/loadingScreen.js"></script>
+    <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/historyGraph.js"></script>
+    <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/container.js"></script>
+</body>
+
+</html>
