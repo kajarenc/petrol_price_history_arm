@@ -21,7 +21,7 @@ class Container extends React.Component {
 
     render() {
         if (this.state.ready) {
-            return <HistoryGraph historyData={this.state.data}/>; // TODO implement the chart
+            return <HistoryGraph historyData={this.state.data}/>;
         }
         
         return <LoadingScreen onDataLoaded={(data) => this.dataLoaded(data)}/>;
