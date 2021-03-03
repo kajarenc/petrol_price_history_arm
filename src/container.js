@@ -8,15 +8,27 @@ class Container extends React.Component {
         super(props);
         this.state = { 
             ready: false,
-            data: null
+            data: null,
+            interval: 1
+        };
+
+        let intervalSelect = document.getElementById('interval-select');
+        intervalSelect.onchange = () => {
+            const interval = parseInt(intervalSelect.value);
+            this.setState({
+                interval,
+                ready: false
+            });
         };
     }
 
-    dataLoaded(data) {
-        this.setState({
-            ready: true,
-            data
-        });
+    dataLoaded(data, intervalAtComputation) {
+        if (intervalAtComputation == this.state.interval) {
+            this.setState({
+                ready: true,
+                data
+            });
+        }
     }
 
     render() {
@@ -24,7 +36,8 @@ class Container extends React.Component {
             return <HistoryGraph historyData={this.state.data}/>;
         }
         
-        return <LoadingScreen onDataLoaded={(data) => this.dataLoaded(data)}/>;
+        let currentInterval = this.state.interval;
+        return <LoadingScreen interval={currentInterval} onDataLoaded={(data) => this.dataLoaded(data, currentInterval)}/>;
     }
 }
 

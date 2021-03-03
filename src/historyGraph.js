@@ -4,7 +4,9 @@ export class HistoryGraph extends React.Component {
      */
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            'interval': 1
+        };
         am4core.useTheme(am4themes_animated);
     }
     render() {

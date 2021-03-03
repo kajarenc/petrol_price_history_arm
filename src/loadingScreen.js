@@ -6,11 +6,13 @@ export class LoadingScreen extends React.Component {
         super(props);
         this.state = {
             loadedCount: 0,
-            targetCount: 31
+            targetCount: 31,
+            interval: this.props.interval
         };
         this.yearFormatter = new Intl.DateTimeFormat('en', { year: 'numeric' });
         this.monthFormatter = new Intl.DateTimeFormat('en', { month: '2-digit' });
         this.dayFormatter = new Intl.DateTimeFormat('en', { day: '2-digit' });
+        
         this.loadData();
     }
 
@@ -18,7 +20,7 @@ export class LoadingScreen extends React.Component {
         let promises = [];
         for (let i = this.state.targetCount - 1; i >= 0; i--) {
             let date = new Date();
-            date.setDate(date.getDate() - i);
+            date.setDate(date.getDate() - i * this.state.interval);
             promises.push(this.loadDataOfDay(date));
         }
         let results = await Promise.all(promises);
